@@ -1,0 +1,41 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dark-theme {
+  --bg: #000;
+  --fg: #fff;
+  --surface: #111;
+  --border: #333;
+  --dim: #555;
+  --hover: #222;
+}
+
+.light-theme {
+  --bg: #fff;
+  --fg: #000;
+  --surface: #f0f0f0;
+  --border: #ddd;
+  --dim: #999;
+  --hover: #e5e5e5;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  transition: background 0.2s, color 0.2s;
+}

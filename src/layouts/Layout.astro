@@ -1,0 +1,49 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const siteUrl = 'https://screenruler.pages.dev';
+---
+
+<!DOCTYPE html>
+<html lang="en" class="dark-theme">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="online ruler, screen ruler, pixel ruler, cm ruler, inch ruler, web ruler, measurement tool, on-screen measurement" />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <link rel="canonical" href={siteUrl} />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Screen Ruler",
+        "description": "On-screen ruler for measuring in pixels, centimeters, and inches. Customizable edges with dark mode support.",
+        "applicationCategory": "Measurement",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript"
+      }
+    </script>
+
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

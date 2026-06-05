@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://screenruler.pages.dev/sitemap-index.xml
