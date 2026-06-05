@@ -7,6 +7,6 @@ import cloudflare from "@astrojs/cloudflare";
 export default defineConfig({
   integrations: [react(), sitemap()],
   output: 'static',
-  site: 'https://screenruler.pages.dev',
+  site: 'https://onlineruler.deviloper.dev',
   adapter: cloudflare()
 });

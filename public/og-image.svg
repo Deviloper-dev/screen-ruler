@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="120" y="315" width="960" height="12" rx="2" fill="#e94560"/>
+  <rect x="120" y="315" width="1" height="12" fill="#e94560"/>
+  <line x1="240" y1="315" x2="240" y2="327" stroke="#ffffff" stroke-width="1"/>
+  <line x1="360" y1="315" x2="360" y2="327" stroke="#ffffff" stroke-width="1"/>
+  <line x1="480" y1="315" x2="480" y2="327" stroke="#ffffff" stroke-width="1"/>
+  <line x1="600" y1="315" x2="600" y2="327" stroke="#ffffff" stroke-width="1"/>
+  <line x1="720" y1="315" x2="720" y2="327" stroke="#ffffff" stroke-width="1"/>
+  <line x1="840" y1="315" x2="840" y2="327" stroke="#ffffff" stroke-width="1"/>
+  <line x1="960" y1="315" x2="960" y2="327" stroke="#ffffff" stroke-width="1"/>
+  <line x1="1080" y1="315" x2="1080" y2="327" stroke="#ffffff" stroke-width="1"/>
+  <rect x="120" y="327" width="960" height="24" rx="2" fill="#0f3460"/>
+  <rect x="120" y="327" width="1" height="24" fill="#0f3460"/>
+  <line x1="180" y1="327" x2="180" y2="337" stroke="#ffffff" stroke-width="0.5"/>
+  <line x1="240" y1="327" x2="240" y2="351" stroke="#ffffff" stroke-width="1"/>
+  <line x1="300" y1="327" x2="300" y2="337" stroke="#ffffff" stroke-width="0.5"/>
+  <line x1="360" y1="327" x2="360" y2="351" stroke="#ffffff" stroke-width="1"/>
+  <line x1="420" y1="327" x2="420" y2="337" stroke="#ffffff" stroke-width="0.5"/>
+  <line x1="480" y1="327" x2="480" y2="351" stroke="#ffffff" stroke-width="1"/>
+  <line x1="540" y1="327" x2="540" y2="337" stroke="#ffffff" stroke-width="0.5"/>
+  <line x1="600" y1="327" x2="600" y2="351" stroke="#ffffff" stroke-width="1"/>
+  <line x1="660" y1="327" x2="660" y2="337" stroke="#ffffff" stroke-width="0.5"/>
+  <line x1="720" y1="327" x2="720" y2="351" stroke="#ffffff" stroke-width="1"/>
+  <line x1="780" y1="327" x2="780" y2="337" stroke="#ffffff" stroke-width="0.5"/>
+  <line x1="840" y1="327" x2="840" y2="351" stroke="#ffffff" stroke-width="1"/>
+  <line x1="900" y1="327" x2="900" y2="337" stroke="#ffffff" stroke-width="0.5"/>
+  <line x1="960" y1="327" x2="960" y2="351" stroke="#ffffff" stroke-width="1"/>
+  <line x1="1020" y1="327" x2="1020" y2="337" stroke="#ffffff" stroke-width="0.5"/>
+  <line x1="1080" y1="327" x2="1080" y2="351" stroke="#ffffff" stroke-width="1"/>
+  <text x="600" y="240" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">Online Ruler</text>
+  <text x="600" y="290" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#a0a0b0" text-anchor="middle" dominant-baseline="middle">Measure in px · cm · inches — right in your browser</text>
+</svg>

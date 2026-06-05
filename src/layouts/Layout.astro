@@ -7,7 +7,8 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
-const siteUrl = 'https://screenruler.pages.dev';
+const siteUrl = 'https://onlineruler.deviloper.dev';
+const ogImage = `${siteUrl}/og-image.svg`;
 ---
 
 <!DOCTYPE html>
@@ -16,29 +17,72 @@ const siteUrl = 'https://screenruler.pages.dev';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="description" content={description} />
-    <meta name="keywords" content="online ruler, screen ruler, pixel ruler, cm ruler, inch ruler, web ruler, measurement tool, on-screen measurement" />
+    <meta name="keywords" content="online ruler, screen ruler, pixel ruler, cm ruler, inch ruler, web ruler, measurement tool, on-screen measurement, digital ruler, virtual ruler, browser ruler, actual size ruler" />
+    <meta name="author" content="Online Ruler" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#1a1a2e" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Online Ruler" />
+    <meta name="application-name" content="Online Ruler" />
 
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={siteUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Online Ruler - Measure Anything on Your Screen" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Online Ruler" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content="Online Ruler - Measure Anything on Your Screen" />
 
     <link rel="canonical" href={siteUrl} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
 
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "Screen Ruler",
-        "description": "On-screen ruler for measuring in pixels, centimeters, and inches. Customizable edges with dark mode support.",
-        "applicationCategory": "Measurement",
-        "operatingSystem": "All",
-        "browserRequirements": "Requires JavaScript"
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Online Ruler",
+      "url": siteUrl,
+      "description": "Free online screen ruler. Measure in pixels, centimeters, and inches. Customizable ruler edges for all devices with dark mode.",
+      "applicationCategory": "Measurement",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Online Ruler"
       }
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Online Ruler",
+        "item": siteUrl
+      }]
+    })} />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3NT1HYST0Z"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3NT1HYST0Z');
     </script>
 
     <title>{title}</title>
