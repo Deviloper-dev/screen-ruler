@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import CookieConsent from '../components/CookieConsent';
 
 interface Props {
   title: string;
@@ -77,17 +78,30 @@ const ogImage = `${siteUrl}/og-image.svg`;
       }]
     })} />
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3NT1HYST0Z"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-3NT1HYST0Z');
+      window.gtag = function(){dataLayer.push(arguments);};
+
+      window.__grantConsent = function() {
+        if (window.__gaLoaded) return;
+        window.__gaLoaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-3NT1HYST0Z';
+        document.head.appendChild(s);
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-3NT1HYST0Z');
+      };
+
+      if (localStorage.getItem('cookie-consent') === 'accepted') {
+        window.__grantConsent();
+      }
     </script>
 
     <title>{title}</title>
   </head>
   <body>
     <slot />
+    <CookieConsent client:only="react" />
   </body>
 </html>
