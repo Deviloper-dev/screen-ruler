@@ -12,20 +12,21 @@ interface GuidelinesProps {
   unit: Unit;
   darkMode: boolean;
   enabled: boolean;
+  ppi: number;
 }
 
-function formatCoord(value: number, unit: Unit): string {
+function formatCoord(value: number, unit: Unit, ppi: number): string {
   switch (unit) {
     case 'px':
       return String(Math.round(value));
     case 'cm':
-      return (value / 37.795).toFixed(1);
+      return (value / (ppi / 2.54)).toFixed(1);
     case 'inch':
-      return (value / 96).toFixed(2);
+      return (value / ppi).toFixed(2);
   }
 }
 
-export default function Guidelines({ unit, darkMode, enabled }: GuidelinesProps) {
+export default function Guidelines({ unit, darkMode, enabled, ppi }: GuidelinesProps) {
   const [pos, setPos] = useState({ x: 0, y: 0 });
   const [markers, setMarkers] = useState<Marker[]>([]);
   const [active, setActive] = useState(false);
@@ -134,7 +135,7 @@ export default function Guidelines({ unit, darkMode, enabled }: GuidelinesProps)
             lineHeight: 1.4,
           }}
         >
-          X: {formatCoord(pos.x, unit)} {unit}&nbsp;&nbsp;Y: {formatCoord(pos.y, unit)} {unit}
+          X: {formatCoord(pos.x, unit, ppi)} {unit}&nbsp;&nbsp;Y: {formatCoord(pos.y, unit, ppi)} {unit}
         </div>
       )}
       {markers.map((m) => (

@@ -15,6 +15,7 @@ interface RulerCanvasProps {
   unit: Unit;
   darkMode: boolean;
   visible: boolean;
+  ppi: number;
 }
 
 const BASE_RULER_SIZE = 36;
@@ -23,7 +24,7 @@ const BASE_TICK_MEDIUM = 11;
 const BASE_TICK_MINOR = 7;
 const BASE_FONT_SIZE = 9;
 
-function generateTicks(length: number, unit: Unit): Tick[] {
+function generateTicks(length: number, unit: Unit, ppi: number): Tick[] {
   const ticks: Tick[] = [];
 
   switch (unit) {
@@ -36,7 +37,8 @@ function generateTicks(length: number, unit: Unit): Tick[] {
       break;
     }
     case 'cm': {
-      const pxPerMm = 37.795 / 10;
+      // ppi/25.4 = CSS pixels per mm (25.4mm per inch)
+      const pxPerMm = ppi / 25.4;
       for (let mm = 0; ; mm++) {
         const offset = mm * pxPerMm;
         if (offset > length) break;
@@ -47,8 +49,10 @@ function generateTicks(length: number, unit: Unit): Tick[] {
       break;
     }
     case 'inch': {
+      // ppi/16 = CSS pixels per 1/16 inch
+      const pxPerSixteenth = ppi / 16;
       for (let sixt = 0; ; sixt++) {
-        const offset = sixt * 6;
+        const offset = sixt * pxPerSixteenth;
         if (offset > length) break;
         const isMajor = sixt % 16 === 0;
         const isMedium = sixt % 4 === 0 && !isMajor;
@@ -70,6 +74,7 @@ function drawRuler(
   darkMode: boolean,
   dpr: number,
   zoom: number,
+  ppi: number,
 ) {
   const fg = darkMode ? '#ffffff' : '#000000';
   const bg = darkMode ? '#000000' : '#ffffff';
@@ -102,7 +107,7 @@ function drawRuler(
   }
   ctx.stroke();
 
-  const ticks = generateTicks(length, unit);
+  const ticks = generateTicks(length, unit, ppi);
   const tickOffset = Math.max(2, Math.round(3 / zoom));
 
   for (const tick of ticks) {
@@ -160,7 +165,7 @@ function drawRuler(
   }
 }
 
-export default function RulerCanvas({ position, unit, darkMode, visible }: RulerCanvasProps) {
+export default function RulerCanvas({ position, unit, darkMode, visible, ppi }: RulerCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const baseDprRef = useRef(0);
 
@@ -195,7 +200,7 @@ export default function RulerCanvas({ position, unit, darkMode, visible }: Ruler
       canvas.style.height = `${height}px`;
 
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      drawRuler(ctx, width, height, position, unit, darkMode, dpr, zoom);
+      drawRuler(ctx, width, height, position, unit, darkMode, dpr, zoom, ppi);
     };
 
     const scheduleDraw = () => {
@@ -221,7 +226,7 @@ export default function RulerCanvas({ position, unit, darkMode, visible }: Ruler
       mq?.removeEventListener('change', handleResize);
       if (animationId !== null) cancelAnimationFrame(animationId);
     };
-  }, [position, unit, darkMode, visible]);
+  }, [position, unit, darkMode, visible, ppi]);
 
   if (!visible) return null;
 

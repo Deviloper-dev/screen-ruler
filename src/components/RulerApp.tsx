@@ -7,6 +7,7 @@ type Position = 'top' | 'bottom' | 'left' | 'right';
 type Unit = 'px' | 'cm' | 'inch';
 
 const allSides: Position[] = ['top', 'bottom', 'left', 'right'];
+const PPI_KEY = 'ruler-ppi';
 
 export default function RulerApp() {
   const [activeSides, setActiveSides] = useState<Set<Position>>(
@@ -15,10 +16,24 @@ export default function RulerApp() {
   const [unit, setUnit] = useState<Unit>('px');
   const [darkMode, setDarkMode] = useState(true);
   const [guidelinesEnabled, setGuidelinesEnabled] = useState(false);
+  const [ppi, setPpi] = useState(96);
+
+  useEffect(() => {
+    const stored = localStorage.getItem(PPI_KEY);
+    if (stored) {
+      const val = Number(stored);
+      if (val >= 50 && val <= 600) setPpi(val);
+    }
+  }, []);
 
   useEffect(() => {
     document.documentElement.className = darkMode ? 'dark-theme' : 'light-theme';
   }, [darkMode]);
+
+  const handleSetPpi = useCallback((value: number) => {
+    setPpi(value);
+    localStorage.setItem(PPI_KEY, String(value));
+  }, []);
 
   const toggleSide = useCallback((side: Position) => {
     setActiveSides((prev) => {
@@ -38,6 +53,7 @@ export default function RulerApp() {
           unit={unit}
           darkMode={darkMode}
           visible={activeSides.has(side)}
+          ppi={ppi}
         />
       ))}
       <Controls
@@ -49,11 +65,14 @@ export default function RulerApp() {
         onToggleDarkMode={() => setDarkMode((p) => !p)}
         guidelinesEnabled={guidelinesEnabled}
         onToggleGuidelines={() => setGuidelinesEnabled((p) => !p)}
+        ppi={ppi}
+        onSetPpi={handleSetPpi}
       />
       <Guidelines
         unit={unit}
         darkMode={darkMode}
         enabled={guidelinesEnabled}
+        ppi={ppi}
       />
       <div
         id="ad-space"
