@@ -3,6 +3,328 @@ import Layout from '../layouts/Layout.astro';
 import RulerApp from '../components/RulerApp';
 ---
 
-<Layout title="Online Ruler - Measure Anything on Your Screen" description="Free online screen ruler. Measure in pixels, centimeters, and inches. Customizable ruler edges for all devices with dark mode.">
-  <RulerApp client:only="react" />
+<Layout title="Online Ruler - Measure Anything on Your Screen" description="Free online screen ruler. Measure in pixels, centimeters, and inches with PPI calibration for accurate physical measurements on any screen.">
+  <div class="ruler-viewport">
+    <RulerApp client:only="react" />
+  </div>
+
+  <main class="info-content">
+    <div class="info-inner">
+
+      <section class="info-section intro-section">
+        <h2>Free Online Ruler — Measure Anything on Your Screen</h2>
+        <p>
+          The Online Ruler is a browser-based measurement tool that overlays your screen with accurate ruler markings
+          along any edge. Hold a physical object up to your monitor and read off the length in pixels, centimeters,
+          or inches — no app install required, no sign-up, completely free.
+        </p>
+        <p>
+          Unlike a generic ruler image, this tool calibrates to your screen's actual pixel density (PPI), so
+          measurements reflect real-world physical dimensions — not just CSS pixels. Whether you're checking the
+          size of a component, verifying a print layout, or just curious how wide your phone is, the Online Ruler
+          gives you an instant, reliable answer.
+        </p>
+      </section>
+
+      <section class="info-section">
+        <h2>How to Use the Online Ruler</h2>
+        <ol class="steps-list">
+          <li>
+            <strong>Open the tool</strong> — The ruler appears immediately along the top and left edges of your screen.
+          </li>
+          <li>
+            <strong>Calibrate your screen</strong> — Click the calibration button in the controls panel and choose a method:
+            device lookup, screen diagonal, or credit card drag. This step is important for accurate cm/inch readings.
+          </li>
+          <li>
+            <strong>Choose your unit</strong> — Switch between pixels (px), centimeters (cm), and inches (inch) using the unit
+            selector in the controls panel.
+          </li>
+          <li>
+            <strong>Toggle ruler edges</strong> — Enable or disable the top, bottom, left, or right ruler as needed for
+            your measuring task.
+          </li>
+          <li>
+            <strong>Place your object</strong> — Hold the item against the screen edge aligned with the ruler's zero mark,
+            and read the measurement directly off the tick marks.
+          </li>
+          <li>
+            <strong>Use guidelines</strong> — Enable crosshair guidelines from the controls to mark specific points.
+            Click anywhere on the screen to place a persistent marker; press Escape to clear all markers.
+          </li>
+        </ol>
+      </section>
+
+      <section class="info-section">
+        <h2>How to Calibrate for Accurate Physical Measurements</h2>
+        <p>
+          By default the ruler uses 96 PPI (the CSS standard reference density). Most modern screens — especially
+          HiDPI / Retina displays — have significantly higher PPI, so uncalibrated measurements will be off.
+          Three calibration methods are available:
+        </p>
+        <div class="method-grid">
+          <div class="method-card">
+            <h3>Device Lookup</h3>
+            <p>Select your exact device from a database of 80+ phones, laptops, tablets, and monitors.
+            The tool pre-fills your screen's manufacturer-stated PPI value instantly.</p>
+          </div>
+          <div class="method-card">
+            <h3>Screen Diagonal</h3>
+            <p>Enter your monitor's diagonal measurement in inches (usually printed on the box or listed in
+            the device specs). The tool calculates PPI from your screen resolution and that diagonal.</p>
+          </div>
+          <div class="method-card">
+            <h3>Credit Card Drag</h3>
+            <p>Drag the on-screen card outline until it exactly matches a physical credit card (ISO 7810 ID-1:
+            85.6 × 54 mm). The most tactile and accurate method for any unlisted device.</p>
+          </div>
+        </div>
+        <p>Your calibrated PPI is saved to localStorage and remembered across browser sessions.</p>
+      </section>
+
+      <section class="info-section">
+        <h2>Features</h2>
+        <ul class="feature-list">
+          <li><strong>Three measurement units</strong> — pixels, centimeters, and inches, switchable at any time</li>
+          <li><strong>Four ruler edges</strong> — top, bottom, left, and right; enable any combination simultaneously</li>
+          <li><strong>PPI calibration</strong> — three calibration methods for physically accurate cm and inch readings</li>
+          <li><strong>Device database</strong> — 80+ devices including MacBook, iMac, iPad, iPhone 11–17, Samsung Galaxy, Google Pixel, and major Windows laptops</li>
+          <li><strong>Crosshair guidelines</strong> — full-screen crosshair lines that follow your cursor, with persistent click markers</li>
+          <li><strong>Dark and light mode</strong> — toggle between themes; default matches system preference</li>
+          <li><strong>No installation</strong> — runs entirely in your browser; works on Chrome, Firefox, Safari, and Edge</li>
+          <li><strong>Mobile support</strong> — works on smartphones and tablets; touch-compatible controls</li>
+          <li><strong>Free and private</strong> — no sign-up, no data sent to any server, no tracking beyond optional analytics</li>
+        </ul>
+      </section>
+
+      <section class="info-section faq-section">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <h3>How accurate is the Online Ruler?</h3>
+          <p>
+            After calibrating your screen, measurements are accurate to within ±1 mm for most displays. Accuracy
+            depends on how precisely you calibrate — the credit card method is typically the most accurate since
+            it uses a physical reference with known ISO dimensions (85.6 × 54 mm).
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Why are my measurements in cm off without calibration?</h3>
+          <p>
+            The browser has no way to know your screen's physical size, so it defaults to 96 PPI — the CSS
+            reference value defined by the W3C. Modern HiDPI screens (like MacBook Retina displays at 220+ PPI)
+            are much denser, so 96 PPI underestimates actual physical size. Calibrating fixes this.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What is PPI and why does it matter?</h3>
+          <p>
+            PPI (pixels per inch) describes how many pixels fit in one physical inch of screen. A 4K monitor
+            has many more pixels per inch than a 1080p monitor of the same size, making each CSS pixel physically
+            smaller. The ruler needs your screen's PPI to convert "how many pixels" into "how many centimeters."
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Can I use the ruler on a phone or tablet?</h3>
+          <p>
+            Yes. The ruler works on modern mobile browsers. For the most accurate results, select your device
+            from the device lookup in the calibration panel — it will load the correct PPI for your model.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How do I measure the width of an object?</h3>
+          <p>
+            Enable the top or bottom ruler edge, then hold your object flat against the screen with one edge at
+            the zero mark. The tick mark nearest the other end of the object shows the measurement. For thin or
+            lightweight items, the left and right edges work well too.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Can I place multiple measurement markers on screen?</h3>
+          <p>
+            Yes. Enable the crosshair guidelines from the controls panel, then click anywhere on the screen to
+            place a persistent positional marker showing exact coordinates. You can place multiple markers.
+            Press Escape to clear all markers at once.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Does the ruler work offline?</h3>
+          <p>
+            Once the page has loaded, the ruler's canvas rendering and all measurement logic run entirely in your
+            browser with no network dependency. Reloading without internet requires the page to already be cached.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Is the Online Ruler free?</h3>
+          <p>
+            Yes — completely free, no sign-up, no download, no watermarks. Open the URL and start measuring immediately.
+          </p>
+        </div>
+      </section>
+
+      <footer class="info-footer">
+        <p>A free tool by <a href="https://deviloper.dev" rel="author">deviloper.dev</a></p>
+        <p>Also try: <a href="https://character-counter.deviloper.dev">CharCap — Character Counter with Platform Limits</a></p>
+      </footer>
+
+    </div>
+  </main>
 </Layout>
+
+<style>
+  .ruler-viewport {
+    min-height: 100vh;
+    position: relative;
+  }
+
+  .info-content {
+    background: var(--bg);
+    color: var(--fg);
+    padding: 0 24px 64px;
+  }
+
+  .info-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 64px;
+  }
+
+  .info-section {
+    margin-bottom: 56px;
+  }
+
+  .info-section h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--fg);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+  }
+
+  .info-section p {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--fg);
+    margin-bottom: 12px;
+    opacity: 0.85;
+  }
+
+  .steps-list {
+    list-style: decimal;
+    padding-left: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .steps-list li {
+    font-size: 15px;
+    line-height: 1.65;
+    opacity: 0.85;
+  }
+
+  .steps-list strong {
+    opacity: 1;
+    color: var(--fg);
+  }
+
+  .method-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+
+  .method-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px;
+  }
+
+  .method-card h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .method-card p {
+    font-size: 13.5px;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.8;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .feature-list li {
+    font-size: 14.5px;
+    line-height: 1.6;
+    padding-left: 20px;
+    position: relative;
+    opacity: 0.85;
+  }
+
+  .feature-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #4ade80;
+    font-weight: 700;
+  }
+
+  .faq-item {
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .faq-item:last-child {
+    border-bottom: none;
+  }
+
+  .faq-item h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--fg);
+  }
+
+  .faq-item p {
+    font-size: 14.5px;
+    line-height: 1.7;
+    opacity: 0.8;
+    margin: 0;
+  }
+
+  .info-footer {
+    text-align: center;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    font-size: 14px;
+    opacity: 0.6;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .info-footer a {
+    color: var(--fg);
+    text-decoration: underline;
+    opacity: 0.9;
+  }
+</style>
