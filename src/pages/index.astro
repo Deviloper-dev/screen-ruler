@@ -1,9 +1,119 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import RulerApp from '../components/RulerApp';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How accurate is the Online Ruler?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "After calibrating your screen, measurements are accurate to within ±1 mm for most displays. Accuracy depends on calibration — the credit card method is typically the most accurate since it uses a physical reference with known ISO dimensions (85.6 × 54 mm)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why are my measurements in cm off without calibration?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The browser has no way to know your screen's physical size, so it defaults to 96 PPI (the CSS reference value defined by W3C). Modern HiDPI screens (like MacBook Retina displays at 220+ PPI) are much denser, so 96 PPI underestimates actual physical size. Calibrating fixes this."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is PPI and why does it matter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PPI (pixels per inch) describes how many pixels fit in one physical inch of screen. The ruler needs your screen's exact PPI to convert 'how many pixels' into 'how many centimeters' or 'how many inches'."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use the ruler on a phone or tablet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The ruler works on modern mobile browsers. Select your device from the device lookup database in the calibration panel to load the exact PPI for your model."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I measure the width of an object?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enable the top or bottom ruler edge, then hold your object flat against the screen with one edge aligned at the zero mark. Read off the tick mark at the other end of the object."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I place multiple measurement markers on screen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Enable crosshair guidelines from the controls panel, then click anywhere on screen to drop persistent positional markers. Press Escape to clear all markers at once."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the ruler work offline?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Once loaded, the ruler's HTML5 canvas rendering and measurement logic run entirely inside your browser with no active network dependency."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the Online Ruler free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — 100% free with no sign-up, no downloads, and no watermarks."
+      }
+    }
+  ]
+};
+
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Measure Physical Objects with an Online Screen Ruler",
+  "description": "Step-by-step instructions for calibrating and measuring physical items on your monitor using the Online Ruler.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Open the tool",
+      "text": "The measurement ruler appears immediately along the screen edges."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Calibrate your screen PPI",
+      "text": "Open calibration and pick device lookup, screen diagonal, or credit card drag to calibrate exact physical scale."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Select measurement unit",
+      "text": "Toggle between pixels (px), centimeters (cm), and inches (in)."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Toggle ruler edges",
+      "text": "Enable top, bottom, left, or right edges depending on the shape and size of your object."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Align and read off dimension",
+      "text": "Hold your object against the screen with one edge at 0 and read the dimension directly from the ticks."
+    }
+  ]
+};
 ---
 
-<Layout title="Online Ruler - Measure Anything on Your Screen" description="Free online screen ruler. Measure in pixels, centimeters, and inches with PPI calibration for accurate physical measurements on any screen.">
+<Layout
+  title="Online Ruler — Actual Size Screen Ruler (cm, inches, px)"
+  description="Free online screen ruler with actual size PPI calibration. Measure physical objects accurately in centimeters, inches, and pixels on any monitor, tablet, or phone."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
   <div class="ruler-viewport">
     <RulerApp client:only="react" />
   </div>

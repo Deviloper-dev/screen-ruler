@@ -1,0 +1,19 @@
+# Online Ruler — Actual Size Screen Measurement Tool
+
+> A free, browser-based physical and digital measurement ruler with screen PPI calibration for 80+ devices.
+
+- **Website**: https://onlineruler.deviloper.dev
+- **Parent Network**: https://deviloper.dev
+- **Price**: 100% Free (No sign-up, no login required)
+- **Privacy**: Fully client-side; measurements and coordinates remain entirely in the browser
+
+## Core Capabilities
+- **Actual Size Physical Measurement**: Accurately measures physical objects held against the monitor or screen.
+- **Three Calibration Methods**:
+  1. *Device Lookup*: Direct PPI database matching 80+ devices (MacBook, iMac, iPad, iPhone, Galaxy, Pixel, Surface, Dell XPS, etc.).
+  2. *Screen Diagonal*: Input monitor diagonal in inches to compute exact PPI.
+  3. *Credit Card Drag*: Tactile drag alignment to standard ISO 7810 ID-1 card dimensions (85.6 × 54 mm).
+- **Units**: Pixels (px), Centimeters (cm), and Inches (in).
+- **Edge Overlays**: Configurable top, bottom, left, and right ruler edge overlays (simultaneous multi-edge display).
+- **Crosshair Guidelines**: Full-screen mouse-tracking crosshairs with persistent click markers and Escape to clear.
+- **Themes**: Dark mode and light mode matching system settings or manual toggle.

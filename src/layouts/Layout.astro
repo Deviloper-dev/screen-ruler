@@ -9,7 +9,7 @@ interface Props {
 
 const { title, description } = Astro.props;
 const siteUrl = 'https://onlineruler.deviloper.dev';
-const ogImage = `${siteUrl}/og-image.svg`;
+const ogImage = `${siteUrl}/og-image.png`;
 ---
 
 <!DOCTYPE html>
@@ -34,9 +34,10 @@ const ogImage = `${siteUrl}/og-image.svg`;
     <meta property="og:type" content="website" />
     <meta property="og:url" content={siteUrl} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Online Ruler - Measure Anything on Your Screen" />
+    <meta property="og:image:alt" content="Online Ruler - Actual Size Screen Measurement Tool" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="Online Ruler" />
 
@@ -44,7 +45,7 @@ const ogImage = `${siteUrl}/og-image.svg`;
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
-    <meta name="twitter:image:alt" content="Online Ruler - Measure Anything on Your Screen" />
+    <meta name="twitter:image:alt" content="Online Ruler - Actual Size Screen Measurement Tool" />
 
     <link rel="canonical" href={siteUrl} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -55,10 +56,22 @@ const ogImage = `${siteUrl}/og-image.svg`;
       "@type": "WebApplication",
       "name": "Online Ruler",
       "url": siteUrl,
-      "description": "Free online screen ruler. Measure in pixels, centimeters, and inches. Customizable ruler edges for all devices with dark mode.",
-      "applicationCategory": "Measurement",
+      "description": "Free online screen ruler with actual size PPI calibration. Measure in centimeters, inches, and pixels on any monitor, tablet, or phone.",
+      "applicationCategory": "UtilitiesApplication",
       "operatingSystem": "All",
       "browserRequirements": "Requires JavaScript",
+      "inLanguage": "en-US",
+      "image": ogImage,
+      "screenshot": ogImage,
+      "isAccessibleForFree": true,
+      "featureList": [
+        "Actual size physical measurement",
+        "Screen PPI calibration (Device lookup, Diagonal, Credit card drag)",
+        "Centimeters, inches, and pixels units",
+        "Top, bottom, left, and right ruler edge overlays",
+        "Full-screen crosshair guidelines with persistent click markers",
+        "Dark mode and light mode themes"
+      ],
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -66,7 +79,13 @@ const ogImage = `${siteUrl}/og-image.svg`;
       },
       "author": {
         "@type": "Organization",
-        "name": "Online Ruler"
+        "name": "deviloper.dev",
+        "url": "https://deviloper.dev"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "deviloper.dev",
+        "url": "https://deviloper.dev"
       }
     })} />
     <script type="application/ld+json" set:html={JSON.stringify({
