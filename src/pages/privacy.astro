@@ -1,0 +1,215 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Privacy Policy | Online Ruler"
+  description="Privacy policy and data transparency details for Online Ruler, covering cookie usage, Google AdSense, analytics, and screen calibration storage."
+>
+  <header class="app-header">
+    <a href="/" class="app-title">Online Ruler</a>
+    <span class="app-tagline">privacy policy</span>
+  </header>
+
+  <main class="info-content">
+    <div class="info-inner">
+      <section class="info-section">
+        <h2>Privacy Policy</h2>
+        <p><em>Last updated: November 1, 2026</em></p>
+        <p>
+          At Online Ruler (<a href="https://onlineruler.deviloper.dev">onlineruler.deviloper.dev</a>),
+          part of the <a href="https://deviloper.dev">deviloper.dev</a> network of utility tools, we respect your privacy
+          and are committed to transparency. This Privacy Policy outlines what information is processed when you use our tool.
+        </p>
+      </section>
+
+      <section class="info-section">
+        <h2>No Personal Data or Measurements Stored</h2>
+        <p>
+          Online Ruler runs entirely client-side inside your browser via the HTML5 Canvas API and JavaScript.
+          We do not record, transmit, or store any of your screen measurements, marker coordinates, or browser viewport data
+          on external servers.
+        </p>
+      </section>
+
+      <section class="info-section">
+        <h2>Google AdSense & Third-Party Advertising</h2>
+        <p>
+          We use Google AdSense to display advertisements. To serve relevant ads, Google and its advertising partners
+          may use cookies and web beacons.
+        </p>
+        <ul class="policy-list">
+          <li>
+            <strong>Third-party vendor cookies:</strong> Third-party vendors, including Google, use cookies to serve
+            ads based on your previous visits to this website or other sites on the Internet.
+          </li>
+          <li>
+            <strong>Personalized advertising:</strong> Google's use of advertising cookies enables it and its partners
+            to serve ads to you based on your visit to our site and other destinations across the web.
+          </li>
+          <li>
+            <strong>Opting out:</strong> You can opt out of personalized advertising by visiting
+            <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer">Google Ads Settings</a>.
+            You can also opt out of third-party advertising cookies by visiting
+            <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">www.aboutads.info</a>.
+          </li>
+        </ul>
+      </section>
+
+      <section class="info-section">
+        <h2>Analytics & Google Consent Mode v2</h2>
+        <p>
+          We use Google Analytics 4 (GA4) to collect aggregated, anonymous statistics such as page views, device types,
+          and general visitor demographics.
+        </p>
+        <p>
+          We implement Google Consent Mode v2: analytics storage and ad storage remain set to <code>denied</code>
+          by default until you accept cookies via the consent banner.
+        </p>
+      </section>
+
+      <section class="info-section">
+        <h2>Local Storage</h2>
+        <p>
+          Online Ruler uses your browser's <code>localStorage</code> for two functional purposes only:
+        </p>
+        <ul class="policy-list">
+          <li><strong>Screen PPI calibration:</strong> Storing your calibrated PPI (pixels per inch) value so you don't have to re-calibrate each visit.</li>
+          <li><strong>Cookie consent:</strong> Remembering your cookie preference (accepted or declined).</li>
+        </ul>
+      </section>
+
+      <section class="info-section">
+        <h2>Contact Us</h2>
+        <p>
+          If you have questions about this policy, visit our parent domain at
+          <a href="https://deviloper.dev" target="_blank" rel="noopener noreferrer">deviloper.dev</a>.
+        </p>
+        <p style="margin-top: 24px;">
+          <a href="/" class="back-link">← Return to Online Ruler</a>
+        </p>
+      </section>
+
+      <footer class="info-footer">
+        <p>A free tool by <a href="https://deviloper.dev" rel="author">deviloper.dev</a></p>
+        <p><a href="/">Online Ruler Home</a> · <a href="https://character-counter.deviloper.dev">CharCap</a></p>
+      </footer>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .app-header {
+    height: 52px;
+    padding: 0 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--surface);
+  }
+
+  .app-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--fg);
+    text-decoration: none;
+    letter-spacing: -0.3px;
+  }
+
+  .app-tagline {
+    font-size: 13px;
+    color: var(--dim);
+    font-weight: 400;
+  }
+
+  .info-content {
+    background: var(--bg);
+    color: var(--fg);
+    padding: 0 24px 64px;
+    min-height: calc(100vh - 52px);
+  }
+
+  .info-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 48px;
+  }
+
+  .info-section {
+    margin-bottom: 40px;
+  }
+
+  .info-section h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    color: var(--fg);
+  }
+
+  .info-section p {
+    font-size: 15px;
+    line-height: 1.75;
+    opacity: 0.85;
+    margin-bottom: 12px;
+  }
+
+  .info-section a {
+    color: var(--fg);
+    text-decoration: underline;
+  }
+
+  .policy-list {
+    list-style: disc;
+    padding-left: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .policy-list li {
+    font-size: 14.5px;
+    line-height: 1.65;
+    opacity: 0.85;
+  }
+
+  .policy-list strong {
+    opacity: 1;
+  }
+
+  .back-link {
+    display: inline-block;
+    padding: 8px 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--fg) !important;
+    text-decoration: none !important;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .back-link:hover {
+    background: var(--hover);
+  }
+
+  .info-footer {
+    text-align: center;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    font-size: 14px;
+    opacity: 0.6;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .info-footer a {
+    color: var(--fg);
+    text-decoration: underline;
+    opacity: 0.9;
+  }
+</style>

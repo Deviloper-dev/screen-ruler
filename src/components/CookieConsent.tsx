@@ -83,11 +83,9 @@ export default function CookieConsent() {
   return (
     <div style={styles.overlay} role="dialog" aria-label="Cookie consent">
       <div style={styles.text}>
-        This site uses cookies to improve your experience.{' '}
+        This site uses cookies for analytics and to improve your experience.{' '}
         <a
-          href="https://policies.google.com/technologies/cookies"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="/privacy"
           style={styles.link}
         >
           Learn more

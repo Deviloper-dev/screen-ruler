@@ -3,4 +3,6 @@
 interface Window {
   __grantConsent?: () => void;
   dataLayer?: unknown[];
+  gtag?: (...args: unknown[]) => void;
 }
+

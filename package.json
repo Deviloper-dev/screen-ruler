@@ -9,7 +9,8 @@
     "preview": "npm run build && wrangler dev",
     "astro": "astro",
     "deploy": "npm run build && wrangler deploy",
-    "cf-typegen": "wrangler types"
+    "cf-typegen": "wrangler types",
+    "check": "tsc --noEmit"
   },
   "dependencies": {
     "@astrojs/cloudflare": "12",

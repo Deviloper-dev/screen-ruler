@@ -80,18 +80,29 @@ const ogImage = `${siteUrl}/og-image.svg`;
       }]
     })} />
 
+    <!-- Google tag (gtag.js) — always present so GA can verify installation -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PCZPZC1H5E"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      window.gtag = function(){dataLayer.push(arguments);};
+      window.gtag = function(){ dataLayer.push(arguments); };
 
+      // Consent Mode v2: default all storage to denied until user accepts
+      window.gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage:        'denied',
+        wait_for_update:   500
+      });
+
+      window.gtag('js', new Date());
+      window.gtag('config', 'G-PCZPZC1H5E');
+
+      // Called by CookieConsent on Accept
       window.__grantConsent = function() {
-        if (window.__gaLoaded) return;
-        window.__gaLoaded = true;
-        var s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-PCZPZC1H5E';
-        document.head.appendChild(s);
-        window.gtag('js', new Date());
+        window.gtag('consent', 'update', {
+          analytics_storage: 'granted',
+          ad_storage:        'granted'
+        });
+        // Re-fire config so GA sends the pageview that was dropped while consent was denied
         window.gtag('config', 'G-PCZPZC1H5E');
       };
 
